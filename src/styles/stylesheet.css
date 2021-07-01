@@ -1,0 +1,116 @@
+/*Equivalent to .flex-container{} */
+
+@font-face {
+    font-family: 'billabong';
+    src: url('../fonts/billabong.ttf');
+}
+
+/* Using 'display: table' forces 'auto' margin to be same on both sides */
+.addIcon {
+    margin: 20px auto;
+    display: table;
+    padding: 40px;
+    background-image: url('../images/pink-add-button.png');
+    background-size: contain;   /*Scales w/o stretch or crop to fit background size */
+    background-color: white;
+    border: none;
+
+}
+
+button {
+    flex-basis: 40%;
+    color: hotpink;
+    font-size: 15px;
+    border: 2px solid #f2f2f2;
+    line-height: 2;
+    padding: 15px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+button:hover{
+    border-color: pink;
+}
+
+.figure {
+    border: 1px solid #d3d3d3;
+    flex-basis: calc(33.333% - 4rem);
+    flex-grow: 1;
+    margin: 0 2rem 2rem 2rem;
+    padding: 2rem;
+}
+
+.form {
+    background: white;
+    margin: 0 auto;  /*Auto makes both sides same length as smaller side, centering component*/
+    max-width: 360px;
+    padding: 40px;
+    text-align: center;
+}
+
+.form button {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    background: #02a9ea;
+    width: 100%;
+    padding: 15px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.form button:hover{
+    background: #0291ca;
+}
+
+.form input{
+    font-family: sans-serif;
+    background: #f2f2f2;
+    width: 100%;
+    border: none;
+    padding: 15px;
+    /*Solves problem of width being 100% plus padding.  Gets box to shrink so no matter what
+    the width, stays at 100% of container's width while including extra padding*/
+    box-sizing: border-box;
+    font-size: 14px;
+    margin: 0 0 15px;
+}
+
+.form input[type=text]:focus{
+    outline: 2px solid #02a9ea;
+}
+
+html {
+    font-size: 10px;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-family: billabong, sans-serif;
+    text-align: center;
+    font-size: 13rem;
+    font-weight: 100;
+    margin: 2rem 0;
+    letter-spacing: -1px;
+    color: #fe58b5;
+}
+
+p {
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+.photo {
+    width: calc(100% + 4rem);
+    margin: -2rem 0 0 -2rem;
+}
+
+.photoGrid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
