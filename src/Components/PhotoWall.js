@@ -12,7 +12,11 @@ class PhotoWall extends Component {
                 {/* This works: <a onClick={this.props.onNavigate} href='#AddPhoto' className='addIcon'> </a>*/}
                 {/* This works: <button onClick={this.props.onNavigate} className='addIcon'> </button>*/}
                 <div className='photoGrid'>
-                    {   this.props.posts.map((post, index) =>
+                    {   this.props.posts
+                        .sort(function(x,y) {
+                            return y.id - x.id
+                        })
+                        .map((post, index) =>
                             <Photo key={index} post={post} onRemovePhoto={this.props.onRemovePhoto}/>)
                     }
                 </div>
