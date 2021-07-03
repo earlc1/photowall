@@ -26,16 +26,17 @@ class AddPhoto extends Component {
             description: description,
             imageLink: imageLink
         }
-
+        // Submit form emits action
+        // action goes to reducer case 'ADD_POST'
         if (description && imageLink){
-            this.props.onAddPhoto(post)
+            this.props.addPost(post)
+            this.props.onHistory.push('/')
         }
     }
 
     render() {
         return (
             <div>
-                <h1>Añadir foto</h1>
                 <div className='form'>
                     <form onSubmit={this.handleSubmit}>
                         <input type='text' placeholder='Enlace web de fotos' name='link'/>

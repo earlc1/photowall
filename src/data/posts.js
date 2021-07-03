@@ -1,6 +1,5 @@
 // Data store
 
-/* Earl Remove
 const posts = [{
     id: "0",
     description: "Black outfit",
@@ -15,4 +14,4 @@ const posts = [{
     imageLink: "https://cdnd.lystit.com/photos/2013/04/21/dg-white-sheer-ruffled-silk-blouse-product-1-8063277-883987380.jpeg"
 }]
 
-export default posts*/
+export default posts

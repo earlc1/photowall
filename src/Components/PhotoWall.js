@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import Photo from './Photo'
-import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 
 class PhotoWall extends Component {
@@ -11,24 +10,18 @@ class PhotoWall extends Component {
                 <Link to='AddPhoto' className='addIcon'> </Link>
                 {/* This works: <a onClick={this.props.onNavigate} href='#AddPhoto' className='addIcon'> </a>*/}
                 {/* This works: <button onClick={this.props.onNavigate} className='addIcon'> </button>*/}
+                {/* Props:
+                    index: added for remove photo action*/}
                 <div className='photoGrid'>
                     {   this.props.posts
                         .sort(function(x,y) {
                             return y.id - x.id
                         })
-                        .map((post, index) =>
-                            <Photo key={index} post={post} onRemovePhoto={this.props.onRemovePhoto}/>)
+                        .map((post, index) => <Photo key={index} post={post} {...this.props} index={index}/>)
                     }
                 </div>
             </div>
     }
-}
-
-
-
-// Make passed parameters and types required
-PhotoWall.propTypes = {
-    posts: PropTypes.array.isRequired
 }
 
 export default PhotoWall

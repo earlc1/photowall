@@ -1,19 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Main from './Components/Main'
 import './styles/stylesheet.css'
 import {BrowserRouter} from 'react-router-dom'  // Keeps track of URL changes so back button works
-// Earl Restore import {createStore} from 'redux'
-// Earl Restore import rootReducer from './redux/reducer'  // Named different but uses default export postReducer
-// Earl Restore import {Provider} from 'react-redux'
-// import App from '../archive/App'
+import {createStore} from 'redux'
+import rootReducer from './redux/reducer'  // Named different but uses default export postReducer
+import {Provider} from 'react-redux'
+import App from './Components/App'
 
-/*Only way to change store is through a Reducer*/
-/*Earl Restore const store = createStore(rootReducer)*/
+/*Create store and pass it a Reducer*/
+const store = createStore(rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-/* Earl Restore
 ReactDOM.render(<Provider store={store}><BrowserRouter><App/></BrowserRouter></Provider>,
-    document.getElementById('root'));*/
-
-ReactDOM.render(<BrowserRouter><Main/></BrowserRouter>,
     document.getElementById('root'));
