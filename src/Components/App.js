@@ -9,7 +9,7 @@ import Main from './Main'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as actions from '../redux/actions'
-import {withRouter} from 'react-router'
+import {withRouter} from 'react-router'     // Installed with react-router-dom
 
 /*
 Map current state inside store to props
@@ -17,7 +17,8 @@ The props can then be injected inside a component at any level as posts
 */
 function mapStateToProps(state) {
     return{
-        posts: state
+        posts: state.posts,
+        comments: state.comments
     }
 }
 
@@ -27,11 +28,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 /*
-Connect Main component to redux store
-Inject Main() with current state props and dispatch action
-From Main(), pass props down to sub-components
+- Connects Main component to redux store
+- Inject Main() with current state of props and dispatch actions
+- From Main(), pass props down to sub-components because its a smaller app
 */
-
 const App = withRouter(connect(mapStateToProps, mapDispatchToProps)(Main))
 
 export default App
